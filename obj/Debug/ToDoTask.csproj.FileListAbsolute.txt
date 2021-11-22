@@ -1,0 +1,27 @@
+F:\Repos\ToDoTask\bin\Debug\DatabaseTasks.mdf
+F:\Repos\ToDoTask\bin\Debug\DatabaseTasks_log.ldf
+F:\Repos\ToDoTask\bin\Debug\ToDoTask.exe.config
+F:\Repos\ToDoTask\bin\Debug\ToDoTask.exe
+F:\Repos\ToDoTask\bin\Debug\ToDoTask.pdb
+F:\Repos\ToDoTask\obj\Debug\ToDoTask.csprojAssemblyReference.cache
+F:\Repos\ToDoTask\obj\Debug\ToDoTask.Form1.resources
+F:\Repos\ToDoTask\obj\Debug\ToDoTask.Properties.Resources.resources
+F:\Repos\ToDoTask\obj\Debug\ToDoTask.csproj.GenerateResource.cache
+F:\Repos\ToDoTask\obj\Debug\ToDoTask.csproj.CoreCompileInputs.cache
+F:\Repos\ToDoTask\obj\Debug\ToDoTask.exe
+F:\Repos\ToDoTask\obj\Debug\ToDoTask.pdb
+F:\Repos\ToDoTask\obj\Debug\ToDoTask.MainForm.resources
+F:\Repos\ToDoTask v.1\bin\Debug\DatabaseTasks.mdf
+F:\Repos\ToDoTask v.1\bin\Debug\DatabaseTasks_log.ldf
+F:\Repos\ToDoTask v.1\bin\Debug\ToDoTask.exe.config
+F:\Repos\ToDoTask v.1\bin\Debug\ToDoTask.exe
+F:\Repos\ToDoTask v.1\bin\Debug\ToDoTask.pdb
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.csprojAssemblyReference.cache
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.MainForm.resources
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.Properties.Resources.resources
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.csproj.GenerateResource.cache
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.csproj.CoreCompileInputs.cache
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.exe
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.pdb
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.UpdateForm.resources
+F:\Repos\ToDoTask v.1\obj\Debug\ToDoTask.add_Task_Form.resources
