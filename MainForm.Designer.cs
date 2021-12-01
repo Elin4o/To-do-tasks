@@ -42,6 +42,7 @@
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.btn_Done = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksDataSetBindingSource)).BeginInit();
@@ -73,6 +74,8 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(350, 400);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CurrentCellDirtyStateChanged += new System.EventHandler(this.DataGridView1_CurrentCellDirtyStateChanged);
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView1_DataBindingComplete);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -166,12 +169,25 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Done tasks";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
+            // 
+            // btn_Done
+            // 
+            this.btn_Done.Location = new System.Drawing.Point(368, 210);
+            this.btn_Done.Name = "btn_Done";
+            this.btn_Done.Size = new System.Drawing.Size(120, 60);
+            this.btn_Done.TabIndex = 7;
+            this.btn_Done.Text = "Task is done";
+            this.btn_Done.UseVisualStyleBackColor = true;
+            this.btn_Done.Visible = false;
+            this.btn_Done.Click += new System.EventHandler(this.Btn_Done_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 453);
+            this.Controls.Add(this.btn_Done);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Delete);
@@ -180,7 +196,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "Tasks";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tasksBindingSource)).EndInit();
@@ -205,5 +221,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_Done;
     }
 }

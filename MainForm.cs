@@ -34,7 +34,7 @@ namespace ToDoTask
         {
             SqlConnection sc = new SqlConnection
             {
-                ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.1\\DatabaseTasks.mdf;Integrated Security=True")
+                ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.2\\DatabaseTasks.mdf;Integrated Security=True")
             };
 
             sda = new SqlDataAdapter("SELECT * FROM Tasks",sc);
@@ -46,7 +46,7 @@ namespace ToDoTask
         //Отваря нова форма,където добавяме нов запис.
         private void Btn_Add_Click(object sender, EventArgs e)
         {
-            add_Task_Form f1 = new add_Task_Form();
+            Add_Task_Form f1 = new Add_Task_Form();
             f1.Show();
             this.Hide();
         }
@@ -81,7 +81,7 @@ namespace ToDoTask
                     // If 'Yes', do something here.
                     SqlConnection sc = new SqlConnection();
                     SqlCommand com = new SqlCommand();
-                    sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.1\\DatabaseTasks.mdf;Integrated Security=True");
+                    sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.2\\DatabaseTasks.mdf;Integrated Security=True");
                     sc.Open();
 
                     com.Connection = sc;
@@ -102,6 +102,105 @@ namespace ToDoTask
                 MessageBox.Show("Empty selection,nothing to delete.Please add tasks !");
             }
 
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            DoneTasksForm dtf = new DoneTasksForm();
+            dtf.Show();
+            this.Hide();
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+        private void Btn_Done_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                string taskValue = Convert.ToString(selectedRow.Cells[2].Value);
+                string dateValue = Convert.ToString(selectedRow.Cells[3].Value);
+                DateTime dateTime = DateTime.Parse(dateValue);
+
+                //добавя
+                SqlConnection sc = new SqlConnection();
+                SqlCommand com = new SqlCommand();
+                //Локация на базата от данни,вероятно трябва да замените локацията с мястото,където сте запазили файла V V V.
+                sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.2\\DatabaseTasks.mdf;Integrated Security=True");
+                sc.Open();
+
+                com.Connection = sc;
+                com.CommandText = @"INSERT INTO DoneTasks (Task,Date) VALUES (@task, @date)";
+                com.Parameters.AddWithValue("@task", taskValue);
+                com.Parameters.AddWithValue("@date", dateTime);
+                com.ExecuteNonQuery();
+
+                sc.Close();
+                //трие
+                SqlConnection sc1 = new SqlConnection();
+                SqlCommand com1 = new SqlCommand();
+                sc1.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.2\\DatabaseTasks.mdf;Integrated Security=True");
+                sc1.Open();
+
+                com1.Connection = sc1;
+                com1.CommandText = @"DELETE FROM Tasks WHERE id = (@id)";
+                com1.Parameters.AddWithValue("@id", dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                com1.ExecuteNonQuery();
+
+
+                sc1.Close();
+                ShowData();
+                MessageBox.Show("Task succesfully done!");
+            }           
+        }
+        private void DataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                //Взема информацията от таблицата
+                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                string taskValue = Convert.ToString(selectedRow.Cells[2].Value);
+                string dateValue = Convert.ToString(selectedRow.Cells[3].Value);
+                DateTime dateTime = DateTime.Parse(dateValue);
+
+                //добавя
+                SqlConnection sc = new SqlConnection();
+                SqlCommand com = new SqlCommand();
+                //Локация на базата от данни,вероятно трябва да замените локацията с мястото,където сте запазили файла V V V.
+                sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.2\\DatabaseTasks.mdf;Integrated Security=True");
+                sc.Open();
+
+                com.Connection = sc;
+                com.CommandText = @"INSERT INTO DoneTasks (Task,Date) VALUES (@task, @date)";
+                com.Parameters.AddWithValue("@task", taskValue);
+                com.Parameters.AddWithValue("@date", dateTime);
+                com.ExecuteNonQuery();
+
+                sc.Close();
+                //трие
+                // SqlConnection sc1 = new SqlConnection();
+                // SqlCommand com1 = new SqlCommand();
+                sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.2\\DatabaseTasks.mdf;Integrated Security=True");
+                sc.Open();
+
+                com.Connection = sc;
+                com.CommandText = @"DELETE FROM Tasks WHERE id = (@id)";
+                com.Parameters.AddWithValue("@id", dataGridView1.SelectedRows[0].Cells[0].Value);
+
+                com.ExecuteNonQuery();
+
+
+                sc.Close();
+                ShowData();
+
+                MessageBox.Show("Task succesfully done!");
+            }
         }
 
     }

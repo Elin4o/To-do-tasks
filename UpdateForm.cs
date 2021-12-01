@@ -25,7 +25,7 @@ namespace ToDoTask
             //Попълва textbox-а и dateTimePicker-а със съответния избор от предходната форма.
             SqlConnection sc = new SqlConnection();
             SqlCommand com = new SqlCommand();
-            sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.1\\DatabaseTasks.mdf;Integrated Security=True");
+            sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.2\\DatabaseTasks.mdf;Integrated Security=True");
             sc.Open();
 
             com.Connection = sc;
@@ -49,7 +49,7 @@ namespace ToDoTask
             {
                 SqlConnection sc = new SqlConnection();
                 SqlCommand com = new SqlCommand();
-                sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.1\\DatabaseTasks.mdf;Integrated Security=True");
+                sc.ConnectionString = ("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=F:\\Repos\\ToDoTask v.2\\DatabaseTasks.mdf;Integrated Security=True");
                 sc.Open();
 
                 com.Connection = sc;

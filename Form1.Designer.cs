@@ -1,6 +1,6 @@
 ﻿namespace ToDoTask
 {
-    partial class add_Task_Form
+    partial class Add_Task_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -69,7 +69,7 @@
             this.btn_Back.UseVisualStyleBackColor = true;
             this.btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
             // 
-            // add_Task_Form
+            // Add_Task_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -79,7 +79,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "add_Task_Form";
+            this.Name = "Add_Task_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Task";
             this.ResumeLayout(false);
